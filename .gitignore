@@ -1,0 +1,150 @@
+# Operating System
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+._*
+Thumbs.db
+ehthumbs.db
+
+# Python & virtual environments
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.venv/
+venv/
+ENV/
+env/
+.python-version
+
+# Environment variables
+.env
+.env.*
+.envrc
+!.env.example
+!.env.sample
+!**/.env.example
+!**/.env.sample
+
+# Credentials and secrets
+*.pem
+*.key
+*.p12
+*.pfx
+*.crt
+*.asc
+*.p8
+*.jks
+*.keystore
+*.mobileprovision
+*service-account*.json
+*credentials*.json
+secrets/
+credentials/
+tokens/
+private/
+**/secrets/
+**/credentials/
+**/tokens/
+**/private/
+
+# Build & packaging
+dist/
+build/
+.eggs/
+*.egg-info/
+*.egg
+pip-wheel-metadata/
+target/
+bin/
+obj/
+
+# Testing & coverage caches
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.cache/
+.coverage
+.coverage.*
+coverage.xml
+htmlcov/
+coverage/
+
+# IDEs and editors
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+*.sublime-project
+*.sublime-workspace
+
+# AI development tools
+.claude/
+.codex/
+.cursor/
+.windsurf/
+.github/agents/
+AI_CONTEXT.md
+
+# Project runtime data & local state
+data/*
+!data/.gitkeep
+!data/**/.gitkeep
+ollama-data/
+uploads/
+artifacts/
+outputs/
+reports/
+backups/
+dumps/
+tmp/
+cache/
+
+# Databases
+*.db
+*.sqlite
+*.sqlite3
+*.dump
+*.bak
+
+# Logs
+*.log
+logs/
+
+# Local media & vector caches
+*.wav
+*.mp3
+*.mp4
+*.m4a
+*.flac
+*.srt
+*.faiss
+*.index
+*.npy
+*.npz
+chroma/
+chroma_db/
+vector_db/
+models/
+
+# Browser verification output
+.playwright-cli/
+output/playwright/
+
+# Intentional static demo media
+!demo/assets/episode.wav
+!demo/assets/transcript.srt
+
+# Local deployment records and private credentials
+.env.local
+.env.production
+*.pem
+*.key
+*.sqlite
+*.sqlite3
+*.db
+/data/private/
+/backups/

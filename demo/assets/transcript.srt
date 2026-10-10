@@ -1,0 +1,23 @@
+1
+00:00:00,000 --> 00:00:09,789
+Alex: Welcome to xCAST. This short sample shows how a research paper becomes a conversation with citations. We are using an illustrative paper about sleep and memory.
+
+2
+00:00:10,289 --> 00:00:20,599
+Sam: The question is simple: can sleeping after learning help us remember? In this fictional example, participants learn a list of words, then either sleep or stay awake.
+
+3
+00:00:21,099 --> 00:00:31,188
+Alex: The sleep group recalls more words the next morning. The important distinction is that this example illustrates the interface. These numbers are not findings from a real research study.
+
+4
+00:00:31,688 --> 00:00:42,744
+Sam: Every citation opens the supporting passage and its page. Before approving a real episode, check that the script accurately reflects the original paper, including its limitations.
+
+5
+00:00:43,244 --> 00:00:52,785
+Alex: A small sample and a short follow up would limit the conclusions. A useful podcast explains those caveats instead of presenting a single result as a universal rule.
+
+6
+00:00:53,285 --> 00:01:05,152
+Sam: You can now listen, seek through the waveform, read the synchronized captions, and download the sample artifacts. To process your own papers, run the full xCAST project locally.
