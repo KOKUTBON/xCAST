@@ -21,13 +21,6 @@
 
 ---
 
-## Search & Discovery Keywords
-
-* **Primary Keywords**: AI podcast generator, PDF to podcast, PDF to audio, research paper to podcast, paper to podcast converter, open source podcast generator.
-* **Architecture & Workflows**: Citation-aware podcast script, text-to-speech podcast pipeline, automated audio synthesis, academic paper narration, LLM podcast generation, retrieval-augmented generation (RAG) podcast, human-in-the-loop script review.
-* **Technology Stack**: Python podcast generator, FastAPI audio service, Ollama local podcast generator, CPU TTS, Redis queue worker, Pydantic contracts, S3 audio artifact storage, `tic` CLI.
-
----
 
 ## Table of Contents
 
@@ -61,6 +54,81 @@ Turning academic papers and technical documentation into engaging, understandabl
 2. **Multi-Speaker Narration**: Translates technical material into dynamic conversational segments between hosts, maintaining technical depth while optimizing for audio comprehension.
 3. **Inspectable & Human-in-the-Loop**: Offers human-in-the-loop (HITL) review workflows where generated scripts can be reviewed, edited, and approved prior to launching speech synthesis.
 4. **Local-First & Privacy-Focused**: Designed to run entirely on your own workstation or private infrastructure with local LLMs (Ollama) and local TTS engines (pyttsx3 or a separately reviewed external adapter), ensuring your proprietary documents never leave your server.
+
+---
+
+## Requirements
+
+- **Python**: 3.11 or newer
+- **LLM Provider**: [Ollama](https://ollama.com/) running locally (recommended: `llama3:instruct` or `qwen2.5:7b`), or an [OpenRouter](https://openrouter.ai/) API key
+- **Audio Processing**: [FFmpeg](https://ffmpeg.org/) installed and available on system path (required for audio assembly)
+- **Optional OCR**: Tesseract OCR for extracting text from scanned image PDFs
+- **Optional Queue**: Redis 6+ (if utilizing `QUEUE_MODE=redis` for distributed execution)
+
+---
+
+## Quick Start
+
+### 1. Clone & Set Up Virtual Environment
+
+```bash
+git clone https://github.com/KOKUTBON/xCAST.git
+cd xCAST
+python3 -m venv .venv
+source .venv/bin/activate
+pip install --upgrade pip
+pip install -e libs/contracts -e libs/podcast -e libs/client -e services/api -e services/worker
+```
+
+### 2. Configure Environment & Pull Local Model
+
+```bash
+cp services/api/.env.example services/api/.env
+cp services/worker/.env.example services/worker/.env
+
+# Pull the default local LLM with Ollama
+ollama pull llama3:instruct
+```
+
+### 3. Launch Services
+
+Start the API service in one terminal:
+```bash
+source .venv/bin/activate
+uvicorn podcastify_api.main:app --reload --port 8000
+```
+
+Start the background worker in a second terminal:
+```bash
+source .venv/bin/activate
+python -m podcastify_worker.main
+```
+
+### 4. Generate Your First Podcast
+
+Navigate to **<http://localhost:8000>** in your browser to access the interactive Web Studio, or run the CLI:
+
+```bash
+tic submit path/to/paper.pdf --language en --style everyday --minutes 8 --wait --download ./output
+```
+
+---
+
+## Docker Compose
+
+Run the entire self-hosted stack (API + Worker + Redis + Ollama) in containerized environments:
+
+```bash
+docker compose up --build -d
+docker compose exec ollama ollama pull llama3:instruct
+```
+
+Access endpoints:
+- **Web Studio**: <http://localhost:8000>
+- **API Documentation**: <http://localhost:8000/docs>
+- **Health Check**: <http://localhost:8000/health>
+
+For production deployment instructions and security hardening, consult the [Docker Guide](infra/docker/README.md).
 
 ---
 
@@ -212,80 +280,6 @@ Every processed job generates a structured package in `data/processed/<job_id>/`
 
 ---
 
-## Requirements
-
-- **Python**: 3.11 or newer
-- **LLM Provider**: [Ollama](https://ollama.com/) running locally (recommended: `llama3:instruct` or `qwen2.5:7b`), or an [OpenRouter](https://openrouter.ai/) API key
-- **Audio Processing**: [FFmpeg](https://ffmpeg.org/) installed and available on system path (required for audio assembly)
-- **Optional OCR**: Tesseract OCR for extracting text from scanned image PDFs
-- **Optional Queue**: Redis 6+ (if utilizing `QUEUE_MODE=redis` for distributed execution)
-
----
-
-## Quick Start
-
-### 1. Clone & Set Up Virtual Environment
-
-```bash
-git clone https://github.com/KOKUTBON/xCAST.git
-cd xCAST
-python3 -m venv .venv
-source .venv/bin/activate
-pip install --upgrade pip
-pip install -e libs/contracts -e libs/podcast -e libs/client -e services/api -e services/worker
-```
-
-### 2. Configure Environment & Pull Local Model
-
-```bash
-cp services/api/.env.example services/api/.env
-cp services/worker/.env.example services/worker/.env
-
-# Pull the default local LLM with Ollama
-ollama pull llama3:instruct
-```
-
-### 3. Launch Services
-
-Start the API service in one terminal:
-```bash
-source .venv/bin/activate
-uvicorn podcastify_api.main:app --reload --port 8000
-```
-
-Start the background worker in a second terminal:
-```bash
-source .venv/bin/activate
-python -m podcastify_worker.main
-```
-
-### 4. Generate Your First Podcast
-
-Navigate to **<http://localhost:8000>** in your browser to access the interactive Web Studio, or run the CLI:
-
-```bash
-tic submit path/to/paper.pdf --language en --style everyday --minutes 8 --wait --download ./output
-```
-
----
-
-## Docker Compose
-
-Run the entire self-hosted stack (API + Worker + Redis + Ollama) in containerized environments:
-
-```bash
-docker compose up --build -d
-docker compose exec ollama ollama pull llama3:instruct
-```
-
-Access endpoints:
-- **Web Studio**: <http://localhost:8000>
-- **API Documentation**: <http://localhost:8000/docs>
-- **Health Check**: <http://localhost:8000/health>
-
-For production deployment instructions and security hardening, consult the [Docker Guide](infra/docker/README.md).
-
----
 
 ## CLI & Python SDK (`tic`)
 
