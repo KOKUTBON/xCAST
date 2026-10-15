@@ -1,0 +1,36 @@
+[project]
+name = "podcastify-contracts"
+version = "0.1.0"
+description = "Shared Pydantic contracts for Podcastify services."
+requires-python = ">=3.11"
+dependencies = ["pydantic>=2.6"]
+keywords = [
+  "podcast",
+  "contracts",
+  "schemas",
+  "pydantic",
+  "api",
+]
+license = "MIT"
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Developers",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Topic :: Software Development :: Libraries :: Python Modules",
+]
+
+[project.urls]
+Repository = "https://github.com/KOKUTBON/xCAST"
+Documentation = "https://github.com/KOKUTBON/xCAST/blob/main/README.md"
+Source = "https://github.com/KOKUTBON/xCAST/tree/main/libs/contracts"
+
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]

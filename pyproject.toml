@@ -1,0 +1,53 @@
+[project]
+name = "podcastify-monorepo"
+version = "0.0.0"
+description = "Local-first AI PDF-to-podcast generator for research papers, citation-aware scripts, transcripts, and text-to-speech audio."
+requires-python = ">=3.11"
+readme = "README.md"
+keywords = [
+  "ai",
+  "podcast",
+  "podcast-generator",
+  "pdf-to-podcast",
+  "research-paper",
+  "citation-aware",
+  "document-processing",
+  "text-to-speech",
+  "speech-synthesis",
+  "self-hosted",
+  "rag",
+  "fastapi",
+  "ollama",
+]
+license = "MIT"
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Developers",
+  "Intended Audience :: Science/Research",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Topic :: Multimedia :: Sound/Audio :: Speech",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence",
+  "Topic :: Software Development :: Libraries :: Python Modules",
+]
+
+[project.urls]
+Repository = "https://github.com/KOKUTBON/xCAST"
+Documentation = "https://github.com/KOKUTBON/xCAST/blob/main/README.md"
+Architecture = "https://github.com/KOKUTBON/xCAST/blob/main/docs/architecture.md"
+
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = []
+
+[tool.pytest.ini_options]
+pythonpath = [
+  "libs/contracts/src",
+  "libs/podcast/src",
+  "libs/client/src",
+  "services/api/src",
+  "services/worker/src",
+]

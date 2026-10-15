@@ -1,0 +1,693 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="description" content="xCAST turns research PDFs into cited, reviewable podcast episodes with transcripts, captions, and audio — locally." />
+  <meta name="theme-color" content="#0A0B10" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#F6F3EC" media="(prefers-color-scheme: light)" />
+  <meta property="og:title" content="xCAST — Studio" />
+  <meta property="og:description" content="Papers in. Cited conversations out." />
+  <meta property="og:image" content="/assets/branding/social-preview.png" />
+  <title>xCAST — Studio</title>
+  <link rel="icon" type="image/svg+xml" href="/assets/branding/favicon.svg" />
+  <link rel="icon" type="image/png" href="/assets/branding/favicon.png" />
+  <link rel="apple-touch-icon" href="/assets/branding/app-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..600&family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" />
+  <link rel="stylesheet" href="/static/styles.css" />
+  <script>
+    // Apply the saved theme before first paint to avoid a flash.
+    try {
+      const t = localStorage.getItem("tic.theme");
+      if (t === "light" || t === "dark") document.documentElement.dataset.theme = t;
+    } catch {}
+  </script>
+  <script type="module" src="/static/app.js"></script>
+</head>
+<body>
+  <!-- Icon system: 24px grid, 1.75 stroke, round joins. Referenced via <use href="#i-name">. -->
+  <svg class="sprite" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="brand-grad" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#FF7A3D" /><stop offset=".52" stop-color="#F0457A" /><stop offset="1" stop-color="#7C5CFF" />
+      </linearGradient>
+    </defs>
+    <symbol id="i-mark" viewBox="0 0 64 64"><rect width="64" height="64" rx="16" fill="url(#brand-grad)" /><g fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round"><path stroke-width="5" d="M23 16h-6v32h6M41 16h6v32h-6" /><path stroke-width="4.5" d="M25.5 29v6M32 22v20M38.5 26.5v11" /></g></symbol>
+    <symbol id="i-home" viewBox="0 0 24 24"><path d="M3.5 10.2 12 3.5l8.5 6.7V19a1.5 1.5 0 0 1-1.5 1.5h-4.2v-6h-5.6v6H5A1.5 1.5 0 0 1 3.5 19z" /></symbol>
+    <symbol id="i-studio" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3" /><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21M8.5 21h7" /></symbol>
+    <symbol id="i-help" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" /><path d="M9.6 9.3a2.5 2.5 0 1 1 3.6 2.2c-.7.4-1.2 1-1.2 1.8v.4M12 16.8v.1" /></symbol>
+    <symbol id="i-doc" viewBox="0 0 24 24"><path d="M14 3.5H7.5a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2h9a2 2 0 0 0 2-2V8z" /><path d="M14 3.5V8h4.5M9 12.5h6M9 16h4" /></symbol>
+    <symbol id="i-pdf" viewBox="0 0 24 24"><path d="M14 3.5H7.5a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2h9a2 2 0 0 0 2-2V8z" /><path d="M14 3.5V8h4.5" /><path d="M8.5 17v-4h1.3a1.2 1.2 0 0 1 0 2.4H8.5M12.3 17v-4h.9a1.6 1.6 0 0 1 1.6 1.6v.8a1.6 1.6 0 0 1-1.6 1.6zM16.2 17v-4h1.6M16.2 15h1.3" stroke-width="1.3" /></symbol>
+    <symbol id="i-upload" viewBox="0 0 24 24"><path d="M12 15.5V4M7.5 8.5 12 4l4.5 4.5M4.5 15v3a2.5 2.5 0 0 0 2.5 2.5h10a2.5 2.5 0 0 0 2.5-2.5v-3" /></symbol>
+    <symbol id="i-wave" viewBox="0 0 24 24"><path d="M3.5 11v2M7.25 8v8M11 4.5v15M14.75 7.5v9M18.5 10v4M21 11.5v1" /></symbol>
+    <symbol id="i-extract" viewBox="0 0 24 24"><path d="M4 8V5.5A1.5 1.5 0 0 1 5.5 4H8M16 4h2.5A1.5 1.5 0 0 1 20 5.5V8M20 16v2.5a1.5 1.5 0 0 1-1.5 1.5H16M8 20H5.5A1.5 1.5 0 0 1 4 18.5V16M3 12h18M8 8.5h8M8 15.5h5" /></symbol>
+    <symbol id="i-chunk" viewBox="0 0 24 24"><rect x="4" y="4" width="7" height="7" rx="1.6" /><rect x="13" y="4" width="7" height="7" rx="1.6" /><rect x="4" y="13" width="7" height="7" rx="1.6" /><rect x="13" y="13" width="7" height="7" rx="1.6" stroke-dasharray="2.2 2" /></symbol>
+    <symbol id="i-retrieve" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5" /><path d="m20.5 20.5-5.3-5.3" /><circle cx="8.5" cy="9.5" r=".6" fill="currentColor" /><circle cx="12.5" cy="8.5" r=".6" fill="currentColor" /><circle cx="11" cy="12.8" r=".6" fill="currentColor" /></symbol>
+    <symbol id="i-script" viewBox="0 0 24 24"><path d="M3.5 6A2 2 0 0 1 5.5 4h8a2 2 0 0 1 2 2v4.5a2 2 0 0 1-2 2H9l-3.5 3v-3a2 2 0 0 1-2-2z" /><path d="M18.5 9h.5a1.5 1.5 0 0 1 1.5 1.5v4.5A1.5 1.5 0 0 1 19 16.5h-.5v2.8L15 16.5h-3.5A1.5 1.5 0 0 1 10 15v-.5" /></symbol>
+    <symbol id="i-review" viewBox="0 0 24 24"><path d="M4 20h4L18.6 9.4a2.1 2.1 0 0 0-3-3L5 17z" /><path d="m13.8 8.2 3 3M13.5 20h6.5" /></symbol>
+    <symbol id="i-voice" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5" /><path d="M3 19.5c0-3.2 2.7-5.5 6-5.5s6 2.3 6 5.5M17.5 6a4 4 0 0 1 0 6M19.8 3.8a7.2 7.2 0 0 1 0 10.4" /></symbol>
+    <symbol id="i-mix" viewBox="0 0 24 24"><path d="M6 4v5.5M6 13.5V20M12 4v9.5M12 17.5V20M18 4v2.5M18 10.5V20M4 11.5h4M10 15.5h4M16 8.5h4" /></symbol>
+    <symbol id="i-cite" viewBox="0 0 24 24"><path d="M8.5 4h-3v16h3M15.5 4h3v16h-3M10 9h4.5M10 12h4.5M10 15h3" /></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="10.5" width="14" height="10" rx="2.2" /><path d="M8 10.5V8a4 4 0 0 1 8 0v2.5M12 14.5v2.5" /></symbol>
+    <symbol id="i-plug" viewBox="0 0 24 24"><path d="M9 3.5V7M15 3.5V7M6.5 7h11v3.5a5.5 5.5 0 0 1-11 0zM12 16v4.5" /></symbol>
+    <symbol id="i-pace" viewBox="0 0 24 24"><path d="M4.6 17.5a8.5 8.5 0 1 1 14.8 0" /><path d="m12 13.5 4.2-4.2" /><circle cx="12" cy="13.5" r="1.3" /></symbol>
+    <symbol id="i-meter" viewBox="0 0 24 24"><path d="M4 20h16M6 17v-2M10 17v-5M14 17V8.5M18 17V5" /></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 4v11.5M7.5 11 12 15.5l4.5-4.5M4.5 20h15" /></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8.5" y="8.5" width="11" height="11" rx="2.2" /><path d="M15.5 8.5V6a1.5 1.5 0 0 0-1.5-1.5H6A1.5 1.5 0 0 0 4.5 6v8A1.5 1.5 0 0 0 6 15.5h2.5" /></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5" /></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M6.5 6.5l11 11M17.5 6.5l-11 11" /></symbol>
+    <symbol id="i-alert" viewBox="0 0 24 24"><path d="M10.3 4.4 3 17.5a2 2 0 0 0 1.7 3h14.6a2 2 0 0 0 1.7-3L13.7 4.4a2 2 0 0 0-3.4 0z" /><path d="M12 9.5v4M12 16.8v.1" /></symbol>
+    <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" /><path d="M12 11v5.5M12 7.8v.1" /></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5.2v13.6a1 1 0 0 0 1.5.86l11-6.8a1 1 0 0 0 0-1.72l-11-6.8A1 1 0 0 0 8 5.2z" fill="currentColor" stroke="none" /></symbol>
+    <symbol id="i-pause" viewBox="0 0 24 24"><rect x="6" y="4.5" width="4" height="15" rx="1.2" fill="currentColor" stroke="none" /><rect x="14" y="4.5" width="4" height="15" rx="1.2" fill="currentColor" stroke="none" /></symbol>
+    <symbol id="i-back" viewBox="0 0 24 24"><path d="M4.5 12a7.5 7.5 0 1 0 2.2-5.3L4.5 9M4.5 4.5V9H9" /><path d="M9.8 10v5M14.8 10h-2.4v2.1h1.1a1.45 1.45 0 0 1 0 2.9h-1.2" stroke-width="1.3" /></symbol>
+    <symbol id="i-fwd" viewBox="0 0 24 24"><path d="M19.5 12a7.5 7.5 0 1 1-2.2-5.3L19.5 9M19.5 4.5V9H15" /><path d="M9.8 10v5M14.8 10h-2.4v2.1h1.1a1.45 1.45 0 0 1 0 2.9h-1.2" stroke-width="1.3" /></symbol>
+    <symbol id="i-key" viewBox="0 0 24 24"><circle cx="8" cy="15.5" r="4" /><path d="m10.9 12.6 8.6-8.6M16 7.5l2.5 2.5M18.3 5.2l2 2" /></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" /><path d="M3.5 12h17M12 3.5c2.3 2.4 3.5 5.2 3.5 8.5s-1.2 6.1-3.5 8.5c-2.3-2.4-3.5-5.2-3.5-8.5S9.7 5.9 12 3.5z" /></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" /><path d="M12 7.5V12l3 2" /></symbol>
+    <symbol id="i-cup" viewBox="0 0 24 24"><path d="M4.5 9h11v5a5 5 0 0 1-5 5h-1a5 5 0 0 1-5-5zM15.5 10.5h1.2a2.3 2.3 0 0 1 0 4.6h-1.5M8 3.5v2.5M11 3.5v2.5M14 3.5v2.5" /></symbol>
+    <symbol id="i-cap" viewBox="0 0 24 24"><path d="M2.5 9.5 12 5l9.5 4.5L12 14z" /><path d="M6.5 11.5v4.3c0 1.5 2.5 2.7 5.5 2.7s5.5-1.2 5.5-2.7v-4.3M21.5 9.5v5" /></symbol>
+    <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 3 5 13.5h6.5L10.5 21 19 10.5h-6.5z" /></symbol>
+    <symbol id="i-columns" viewBox="0 0 24 24"><path d="M12 3.5 3.5 8h17zM4 20.5h16M6 11v6.5M10 11v6.5M14 11v6.5M18 11v6.5M3.5 20.5V19M20.5 20.5V19" /></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5" /><path d="m20 20-4.4-4.4" /></symbol>
+    <symbol id="i-command" viewBox="0 0 24 24"><path d="M9 6.5a2.5 2.5 0 1 0-2.5 2.5h11A2.5 2.5 0 1 0 15 6.5v11a2.5 2.5 0 1 0 2.5-2.5h-11A2.5 2.5 0 1 0 9 17.5z" /></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.8" /><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4" /></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M19.5 14.6A7.8 7.8 0 0 1 9.4 4.5a7.8 7.8 0 1 0 10.1 10.1z" /></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h10" /></symbol>
+    <symbol id="i-code" viewBox="0 0 24 24"><path d="m8 7.5-4.5 4.5L8 16.5M16 7.5l4.5 4.5-4.5 4.5M13.5 4.5l-3 15" /></symbol>
+    <symbol id="i-braces" viewBox="0 0 24 24"><path d="M8.5 4H8a2.5 2.5 0 0 0-2.5 2.5v2.8c0 1.2-.9 2.2-2 2.7 1.1.5 2 1.5 2 2.7v2.8A2.5 2.5 0 0 0 8 20h.5M15.5 4h.5a2.5 2.5 0 0 1 2.5 2.5v2.8c0 1.2.9 2.2 2 2.7-1.1.5-2 1.5-2 2.7v2.8A2.5 2.5 0 0 1 16 20h-.5" /></symbol>
+    <symbol id="i-message" viewBox="0 0 24 24"><path d="M4 6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H9.5L5 20.5V17a1 1 0 0 1-1-1z" /><path d="M8 9h8M8 12.5h5" /></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M4.5 12h15M13.5 6l6 6-6 6" /></symbol>
+    <symbol id="i-arrow-left" viewBox="0 0 24 24"><path d="M19.5 12h-15M10.5 6l-6 6 6 6" /></symbol>
+    <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-8.5 8.5M18 14v4.5a1.5 1.5 0 0 1-1.5 1.5h-11A1.5 1.5 0 0 1 4 18.5v-11A1.5 1.5 0 0 1 5.5 6H10" /></symbol>
+    <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M19.5 10.5A7.5 7.5 0 0 0 6 7.2L4.5 8.8M4.5 4.5v4.3h4.3M4.5 13.5A7.5 7.5 0 0 0 18 16.8l1.5-1.6M19.5 19.5v-4.3h-4.3" /></symbol>
+    <symbol id="i-server" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="7" rx="1.8" /><rect x="4" y="13" width="16" height="7" rx="1.8" /><path d="M8 7.5h.01M8 16.5h.01M12 7.5h4M12 16.5h4" /></symbol>
+    <symbol id="i-queue" viewBox="0 0 24 24"><path d="M6.5 3.5h11M6.5 20.5h11M7.5 3.5c0 4.5 9 4.5 9 8.5s-9 4-9 8.5M16.5 3.5c0 4.5-9 4.5-9 8.5s9 4 9 8.5" /></symbol>
+    <symbol id="i-activity" viewBox="0 0 24 24"><path d="M3 12h4l2.5-7 5 14 2.5-7h4" /></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3.5 19.5 6v5.8c0 4.4-3.1 7.9-7.5 8.7-4.4-.8-7.5-4.3-7.5-8.7V6z" /><path d="m9 12 2.2 2.2L15.5 10" /></symbol>
+    <symbol id="i-undo" viewBox="0 0 24 24"><path d="M9 14.5 4.5 10 9 5.5" /><path d="M4.5 10H14a5.5 5.5 0 0 1 0 11h-3" /></symbol>
+    <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m6.5 9.5 5.5 5.5 5.5-5.5" /></symbol>
+    <symbol id="i-spark" viewBox="0 0 24 24"><path d="M11 3.5 12.8 9l5.2 1.8-5.2 1.8L11 18l-1.8-5.4L4 10.8 9.2 9z" /><path d="M18.5 15.5l.7 1.8 1.8.7-1.8.7-.7 1.8-.7-1.8-1.8-.7 1.8-.7z" /></symbol>
+    <symbol id="i-captions" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2.5" /><path d="M7 12.5h3.5M12.5 12.5H17M7 15.5h6M15 15.5h2" /></symbol>
+    <symbol id="i-layers" viewBox="0 0 24 24"><path d="M12 3.5 3.5 8 12 12.5 20.5 8z" /><path d="M3.5 12 12 16.5 20.5 12M3.5 16 12 20.5 20.5 16" /></symbol>
+    <symbol id="i-trash" viewBox="0 0 24 24"><path d="M4.5 7h15M9.5 7V5a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v2M6.5 7l.8 11.6a2 2 0 0 0 2 1.9h5.4a2 2 0 0 0 2-1.9L17.5 7" /></symbol>
+    <symbol id="i-keyboard" viewBox="0 0 24 24"><rect x="2.5" y="6" width="19" height="12" rx="2.2" /><path d="M6 10h.01M9.5 10h.01M13 10h.01M16.5 10h.01M6.5 14h11" /></symbol>
+    <symbol id="i-file-audio" viewBox="0 0 24 24"><path d="M14 3.5H7.5a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2h9a2 2 0 0 0 2-2V8z" /><path d="M14 3.5V8h4.5M8.8 14v2M11 12v6M13.2 13v4M15.4 14.5v1" /></symbol>
+    <symbol id="i-file-text" viewBox="0 0 24 24"><path d="M14 3.5H7.5a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2h9a2 2 0 0 0 2-2V8z" /><path d="M14 3.5V8h4.5M8.5 12h7M8.5 15h7M8.5 18h4" /></symbol>
+    <symbol id="i-file-code" viewBox="0 0 24 24"><path d="M14 3.5H7.5a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2h9a2 2 0 0 0 2-2V8z" /><path d="M14 3.5V8h4.5M10 12.5 8.2 14.5 10 16.5M14 12.5l1.8 2-1.8 2" /></symbol>
+    <symbol id="i-file-caption" viewBox="0 0 24 24"><path d="M14 3.5H7.5a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2h9a2 2 0 0 0 2-2V8z" /><path d="M14 3.5V8h4.5" /><rect x="8" y="12" width="8" height="5.5" rx="1.2" /><path d="M9.8 14.8h1.6M12.6 14.8h1.6" /></symbol>
+    <symbol id="i-file-chart" viewBox="0 0 24 24"><path d="M14 3.5H7.5a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2h9a2 2 0 0 0 2-2V8z" /><path d="M14 3.5V8h4.5M9 18v-2.5M12 18v-5M15 18v-3.5" /></symbol>
+  </svg>
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="topbar" data-topbar>
+    <div class="topbar-inner">
+      <a class="brand" href="#/" aria-label="xCAST home">
+        <svg class="brand-mark" aria-hidden="true"><use href="#i-mark" /></svg>
+        <span class="brand-name"><em>x</em>CAST</span>
+      </a>
+      <nav class="primary-nav" aria-label="Primary">
+        <a href="#/" data-nav="home"><svg class="icon" aria-hidden="true"><use href="#i-home" /></svg>Overview</a>
+        <a href="#/studio" data-nav="studio"><svg class="icon" aria-hidden="true"><use href="#i-studio" /></svg>Studio</a>
+        <a href="#/help" data-nav="help"><svg class="icon" aria-hidden="true"><use href="#i-help" /></svg>Guide</a>
+        <a href="/docs" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-braces" /></svg>API</a>
+      </nav>
+      <div class="topbar-actions">
+        <button class="palette-trigger" type="button" data-palette-open aria-label="Open command palette">
+          <svg class="icon" aria-hidden="true"><use href="#i-search" /></svg>
+          <span>Search or jump…</span>
+          <kbd data-mod-key>⌘K</kbd>
+        </button>
+        <button class="conn-chip" type="button" data-conn-open aria-haspopup="dialog">
+          <span class="conn-dot" data-conn-dot></span>
+          <span class="conn-label" data-conn-label>Connecting…</span>
+          <svg class="icon" aria-hidden="true"><use href="#i-key" /></svg>
+        </button>
+        <button class="icon-btn" type="button" data-theme-toggle aria-label="Toggle color theme">
+          <svg class="icon icon-sun" aria-hidden="true"><use href="#i-sun" /></svg>
+          <svg class="icon icon-moon" aria-hidden="true"><use href="#i-moon" /></svg>
+        </button>
+        <button class="icon-btn menu-btn" type="button" data-menu-open aria-label="Open menu">
+          <svg class="icon" aria-hidden="true"><use href="#i-menu" /></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <!-- ============================== OVERVIEW ============================== -->
+    <section class="view" data-view="home" aria-labelledby="home-title">
+      <div class="hero">
+        <div class="hero-bg" aria-hidden="true"></div>
+        <div class="wrap hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow"><span class="live-dot"></span>Local-first research-to-audio pipeline</p>
+            <h1 id="home-title" class="display">Papers in.<br /><em>Cited</em> conversations out.</h1>
+            <p class="lede">
+              Drop in a research PDF. xCAST extracts it page by page, writes a
+              two-voice script where every claim points back to its page, pauses for your review,
+              then narrates, mixes, and captions the episode — on your own machine.
+            </p>
+            <div class="cta-row">
+              <a class="btn btn-primary btn-lg" href="#/studio">
+                <svg class="icon" aria-hidden="true"><use href="#i-upload" /></svg>Start an episode
+              </a>
+              <button class="btn btn-ghost btn-lg" type="button" data-scroll="#pipeline">
+                See the pipeline<svg class="icon" aria-hidden="true"><use href="#i-arrow-right" /></svg>
+              </button>
+            </div>
+            <ul class="hero-facts" aria-label="Highlights">
+              <li><svg class="icon" aria-hidden="true"><use href="#i-cite" /></svg>Page-level citations</li>
+              <li><svg class="icon" aria-hidden="true"><use href="#i-review" /></svg>Human review gate</li>
+              <li><svg class="icon" aria-hidden="true"><use href="#i-lock" /></svg>Runs offline with Ollama</li>
+            </ul>
+          </div>
+
+          <figure class="demo" data-demo aria-label="Illustrative walkthrough of one episode">
+            <div class="demo-chrome">
+              <span class="demo-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+              <span class="demo-file"><svg class="icon" aria-hidden="true"><use href="#i-pdf" /></svg>sleep-and-memory.pdf</span>
+              <span class="demo-tag">Illustrative</span>
+            </div>
+            <div class="demo-tabs" role="tablist" aria-label="Pipeline stage">
+              <button role="tab" type="button" data-demo-tab="0" aria-selected="true"><svg class="icon" aria-hidden="true"><use href="#i-extract" /></svg>Extract</button>
+              <button role="tab" type="button" data-demo-tab="1" aria-selected="false"><svg class="icon" aria-hidden="true"><use href="#i-script" /></svg>Write</button>
+              <button role="tab" type="button" data-demo-tab="2" aria-selected="false"><svg class="icon" aria-hidden="true"><use href="#i-wave" /></svg>Listen</button>
+              <span class="demo-progress" aria-hidden="true"><span></span></span>
+            </div>
+            <div class="demo-stage">
+              <div class="demo-pane" role="tabpanel" data-demo-pane="0">
+                <div class="paper">
+                  <div class="paper-head"><span class="mono">p. 3</span><span>2. Methods</span></div>
+                  <p class="paper-line w90"></p><p class="paper-line w75"></p>
+                  <p class="paper-hl"><mark>Participants who slept after learning recalled 38% more word pairs.</mark><span class="anchor">¶ p.3</span></p>
+                  <p class="paper-line w85"></p><p class="paper-line w60"></p>
+                  <div class="paper-head"><span class="mono">p. 7</span><span>4. Results</span></div>
+                  <p class="paper-line w80"></p>
+                  <p class="paper-hl"><mark>Spindle density predicted retention (r = .54).</mark><span class="anchor">¶ p.7</span></p>
+                  <p class="paper-line w70"></p>
+                </div>
+                <p class="demo-caption"><svg class="icon" aria-hidden="true"><use href="#i-extract" /></svg>Pages are cleaned, de-hyphenated, chunked — and every chunk keeps its page anchor.</p>
+              </div>
+              <div class="demo-pane" role="tabpanel" data-demo-pane="1" hidden>
+                <div class="bubbles">
+                  <div class="bubble spk-a"><span class="avatar">A</span><div><b>Ava</b><p>Imagine cramming vocab the night before a trip — then sleeping on it.</p></div></div>
+                  <div class="bubble spk-b"><span class="avatar">B</span><div><b>Ben</b><p>The sleepers remembered 38% more word pairs. <span class="cite-chip"><svg class="icon" aria-hidden="true"><use href="#i-cite" /></svg>p.3</span></p></div></div>
+                  <div class="bubble spk-a"><span class="avatar">A</span><div><b>Ava</b><p>And those brain "spindles" were the tell. <span class="cite-chip"><svg class="icon" aria-hidden="true"><use href="#i-cite" /></svg>p.7</span></p></div></div>
+                </div>
+                <p class="demo-caption"><svg class="icon" aria-hidden="true"><use href="#i-review" /></svg>A two-voice script with citations. Edit any line before audio is made.</p>
+              </div>
+              <div class="demo-pane" role="tabpanel" data-demo-pane="2" hidden>
+                <div class="mini-player">
+                  <span class="mini-play" aria-hidden="true"><svg class="icon"><use href="#i-play" /></svg></span>
+                  <div class="mini-wave" aria-hidden="true" data-demo-wave></div>
+                  <span class="mono mini-time">02:14 / 08:02</span>
+                </div>
+                <div class="mini-captions">
+                  <p class="dim"><b>Ava</b> Imagine cramming vocab the night before a trip…</p>
+                  <p class="on"><b>Ben</b> The sleepers remembered 38% more word pairs.</p>
+                  <p class="dim"><b>Ava</b> And those brain "spindles" were the tell.</p>
+                </div>
+                <p class="demo-caption"><svg class="icon" aria-hidden="true"><use href="#i-meter" /></svg>Adaptive pacing, loudness-normalized mix, synced SRT captions.</p>
+              </div>
+            </div>
+          </figure>
+        </div>
+      </div>
+
+      <section class="wrap section" id="pipeline" aria-labelledby="pipeline-title">
+        <header class="section-head">
+          <p class="kicker">Pipeline</p>
+          <h2 id="pipeline-title" class="h2">Eight stages. Every one leaves a file you can inspect.</h2>
+        </header>
+        <ol class="pipeline">
+          <li><span class="node"><svg class="icon" aria-hidden="true"><use href="#i-pdf" /></svg></span><b>Ingest</b><small>PDF upload, validated &amp; queued</small></li>
+          <li><span class="node"><svg class="icon" aria-hidden="true"><use href="#i-extract" /></svg></span><b>Extract</b><small>Page text, headers stripped</small></li>
+          <li><span class="node"><svg class="icon" aria-hidden="true"><use href="#i-chunk" /></svg></span><b>Chunk</b><small>Overlapping, page-anchored</small></li>
+          <li class="is-optional"><span class="node"><svg class="icon" aria-hidden="true"><use href="#i-retrieve" /></svg></span><b>Retrieve</b><small>Local · FAISS</small></li>
+          <li><span class="node"><svg class="icon" aria-hidden="true"><use href="#i-script" /></svg></span><b>Script</b><small>Ollama · OpenRouter</small></li>
+          <li class="is-optional"><span class="node"><svg class="icon" aria-hidden="true"><use href="#i-review" /></svg></span><b>Review</b><small>Edit, approve or reject</small></li>
+          <li><span class="node"><svg class="icon" aria-hidden="true"><use href="#i-voice" /></svg></span><b>Voice</b><small>Qwen · Piper · Coqui · Minimax</small></li>
+          <li><span class="node"><svg class="icon" aria-hidden="true"><use href="#i-mix" /></svg></span><b>Mix</b><small>Pacing, LUFS, captions</small></li>
+        </ol>
+        <p class="legend"><span class="legend-opt"></span>Dashed stages are optional and switched on per job or per deployment.</p>
+      </section>
+
+      <section class="wrap section" aria-labelledby="features-title">
+        <header class="section-head">
+          <p class="kicker">Why it's different</p>
+          <h2 id="features-title" class="h2">Built for people who have to trust what they hear.</h2>
+        </header>
+        <div class="bento">
+          <article class="tile tile-wide tile-evidence">
+            <svg class="tile-icon" aria-hidden="true"><use href="#i-cite" /></svg>
+            <h3>Grounded, not guessed</h3>
+            <p>Segments carry the source, page, and snippet that support them. When the paper doesn't say it, the script says so instead of inventing it.</p>
+            <div class="cite-demo" aria-hidden="true">
+              <span class="cite-chip"><svg class="icon"><use href="#i-cite" /></svg>p.3</span>
+              <span class="cite-chip"><svg class="icon"><use href="#i-cite" /></svg>p.7</span>
+              <span class="cite-chip"><svg class="icon"><use href="#i-cite" /></svg>p.12</span>
+            </div>
+          </article>
+          <article class="tile">
+            <svg class="tile-icon" aria-hidden="true"><use href="#i-review" /></svg>
+            <h3>Review before voice</h3>
+            <p>Pause any job at the script. Rewrite lines, rename speakers, then approve — or reject with a note.</p>
+          </article>
+          <article class="tile">
+            <svg class="tile-icon" aria-hidden="true"><use href="#i-lock" /></svg>
+            <h3>Stays on your machine</h3>
+            <p>Local LLMs and local TTS. PDFs and outputs live in <code>data/</code> unless you point storage at S3.</p>
+          </article>
+          <article class="tile">
+            <svg class="tile-icon" aria-hidden="true"><use href="#i-pace" /></svg>
+            <h3>Paced for comprehension</h3>
+            <p>Speaking rate and pauses adapt to math density and sentence length.</p>
+          </article>
+          <article class="tile">
+            <svg class="tile-icon" aria-hidden="true"><use href="#i-plug" /></svg>
+            <h3>Swap any adapter</h3>
+            <p>LLM, embeddings, vector store, queue, storage and TTS are ports — not rewrites.</p>
+          </article>
+          <article class="tile tile-full">
+            <svg class="tile-icon" aria-hidden="true"><use href="#i-shield" /></svg>
+            <h3>A worker you can leave running</h3>
+            <p>Retries with exponential backoff, a dead-letter queue for poison jobs, and idempotent submissions — on a local directory, a file, or Redis.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="wrap section" aria-labelledby="outputs-title">
+        <header class="section-head">
+          <p class="kicker">Outputs</p>
+          <h2 id="outputs-title" class="h2">One upload, a complete episode kit.</h2>
+        </header>
+        <ul class="outputs">
+          <li><svg class="icon" aria-hidden="true"><use href="#i-file-audio" /></svg><b>episode.mp3</b><small>Normalized multi-voice mix</small></li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-file-caption" /></svg><b>transcript.srt</b><small>Captions for any player</small></li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-file-text" /></svg><b>transcript.txt</b><small>Plain-text transcript</small></li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-file-text" /></svg><b>script.md</b><small>Readable, cited script</small></li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-file-code" /></svg><b>script.json</b><small>Segments + citations</small></li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-file-chart" /></svg><b>audio_quality.json</b><small>Loudness &amp; QA report</small></li>
+        </ul>
+      </section>
+
+      <section class="wrap section" aria-labelledby="dev-title">
+        <div class="dev-grid">
+          <header class="section-head">
+            <p class="kicker">For developers</p>
+            <h2 id="dev-title" class="h2">Same pipeline from the terminal, Python, or HTTP.</h2>
+            <p class="muted">REST with an OpenAPI schema, live progress over Server-Sent Events, a typed Python SDK, and the <code>tic</code> CLI.</p>
+            <div class="cta-row">
+              <a class="btn btn-ghost" href="/docs" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-braces" /></svg>OpenAPI docs<svg class="icon" aria-hidden="true"><use href="#i-external" /></svg></a>
+            </div>
+          </header>
+          <div class="code-card" data-code-tabs>
+            <div class="code-tabs" role="tablist" aria-label="Code example">
+              <button role="tab" type="button" aria-selected="true" data-code-tab="cli">tic CLI</button>
+              <button role="tab" type="button" aria-selected="false" data-code-tab="py">Python</button>
+              <button role="tab" type="button" aria-selected="false" data-code-tab="http">HTTP</button>
+              <button class="icon-btn code-copy" type="button" data-copy-code aria-label="Copy code"><svg class="icon" aria-hidden="true"><use href="#i-copy" /></svg></button>
+            </div>
+<pre data-code="cli"><code><span class="c"># submit, wait, and download every artifact</span>
+tic submit paper.pdf --minutes 8 --wait --download ./episode
+
+<span class="c"># pause for human review, then approve</span>
+tic submit paper.pdf --pause-at-script
+tic review job-a1b2c3d4 approve --notes "Checked citations"</code></pre>
+<pre data-code="py" hidden><code><span class="k">from</span> podcastify_client <span class="k">import</span> ThinkingInCodeClient
+
+<span class="k">with</span> ThinkingInCodeClient(base_url=<span class="s">"http://localhost:8000"</span>) <span class="k">as</span> client:
+    job = client.submit_job(<span class="s">"paper.pdf"</span>, target_minutes=<span class="n">8</span>)
+    <span class="k">print</span>(client.get_status(job[<span class="s">"job_id"</span>]))</code></pre>
+<pre data-code="http" hidden><code>curl -F file=@paper.pdf -F target_minutes=8 \
+     http://localhost:8000/v1/jobs
+
+<span class="c"># stream progress (Server-Sent Events)</span>
+curl -N http://localhost:8000/v1/jobs/&lt;job_id&gt;/progress</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section class="wrap section">
+        <div class="closer">
+          <svg class="closer-mark" aria-hidden="true"><use href="#i-mark" /></svg>
+          <h2 class="h2">Your next paper deserves a listen.</h2>
+          <p class="muted">Start the API and worker, then drop a PDF into the studio.</p>
+          <div class="cta-row center">
+            <a class="btn btn-primary btn-lg" href="#/studio"><svg class="icon" aria-hidden="true"><use href="#i-studio" /></svg>Open the studio</a>
+            <a class="btn btn-ghost btn-lg" href="#/help"><svg class="icon" aria-hidden="true"><use href="#i-help" /></svg>Setup guide</a>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <!-- ============================== STUDIO ============================== -->
+    <section class="view" data-view="studio" aria-labelledby="studio-title" hidden>
+      <div class="wrap app-head">
+        <div>
+          <p class="kicker">Studio</p>
+          <h1 id="studio-title" class="h1">New episode</h1>
+        </div>
+        <p class="muted app-head-note"><svg class="icon" aria-hidden="true"><use href="#i-lock" /></svg>Files go only to this server.</p>
+      </div>
+
+      <div class="wrap studio-grid">
+        <form class="panel composer" data-upload-form novalidate>
+          <label class="dropzone" data-dropzone>
+            <input class="visually-hidden" type="file" name="file" accept="application/pdf,.pdf" data-file-input />
+            <span class="dz-empty">
+              <span class="dz-icon"><svg class="icon" aria-hidden="true"><use href="#i-upload" /></svg></span>
+              <span class="dz-title">Drop a research PDF</span>
+              <span class="dz-sub">or <u>browse your files</u> · PDF, 30 MB by default</span>
+            </span>
+            <span class="dz-file" hidden>
+              <span class="file-thumb"><svg class="icon" aria-hidden="true"><use href="#i-pdf" /></svg></span>
+              <span class="file-meta">
+                <b data-file-name></b>
+                <small class="mono" data-file-stats></small>
+              </span>
+              <button class="icon-btn" type="button" data-file-clear aria-label="Remove file"><svg class="icon" aria-hidden="true"><use href="#i-x" /></svg></button>
+            </span>
+          </label>
+
+          <fieldset class="field-group">
+            <legend class="label"><svg class="icon" aria-hidden="true"><use href="#i-spark" /></svg>Tone</legend>
+            <div class="style-cards">
+              <label class="style-card"><input type="radio" name="style" value="everyday" checked /><span><svg class="icon" aria-hidden="true"><use href="#i-cup" /></svg><b>Everyday</b><small>Plain words, vivid analogies</small></span></label>
+              <label class="style-card"><input type="radio" name="style" value="academic" /><span><svg class="icon" aria-hidden="true"><use href="#i-cap" /></svg><b>Academic</b><small>Precise, method-forward</small></span></label>
+              <label class="style-card"><input type="radio" name="style" value="energetic_academic" /><span><svg class="icon" aria-hidden="true"><use href="#i-bolt" /></svg><b>Energetic</b><small>Academic, with momentum</small></span></label>
+              <label class="style-card"><input type="radio" name="style" value="authoritative" /><span><svg class="icon" aria-hidden="true"><use href="#i-columns" /></svg><b>Authoritative</b><small>Measured, briefing-style</small></span></label>
+            </div>
+          </fieldset>
+
+          <div class="field-row">
+            <div class="field">
+              <label class="label" for="language"><svg class="icon" aria-hidden="true"><use href="#i-globe" /></svg>Language</label>
+              <div class="select">
+                <select id="language" name="language">
+                  <option value="en">English</option>
+                  <option value="es">Español</option>
+                  <option value="fr">Français</option>
+                  <option value="de">Deutsch</option>
+                  <option value="it">Italiano</option>
+                  <option value="pt">Português</option>
+                  <option value="pt-BR">Português (Brasil)</option>
+                  <option value="ar">العربية</option>
+                  <option value="hi">हिन्दी</option>
+                  <option value="zh">中文</option>
+                  <option value="ja">日本語</option>
+                  <option value="ko">한국어</option>
+                  <option value="ru">Русский</option>
+                </select>
+                <svg class="icon" aria-hidden="true"><use href="#i-chevron" /></svg>
+              </div>
+            </div>
+            <div class="field">
+              <span class="label" id="duration-label"><svg class="icon" aria-hidden="true"><use href="#i-clock" /></svg>Target length <output class="mono pill-out" data-duration-out>8:00</output></span>
+              <input class="range" type="range" min="60" max="3600" step="30" value="480" aria-labelledby="duration-label" data-duration />
+              <div class="presets" role="group" aria-label="Length presets">
+                <button type="button" data-preset="300">5m</button>
+                <button type="button" data-preset="480">8m</button>
+                <button type="button" data-preset="720">12m</button>
+                <button type="button" data-preset="1200">20m</button>
+              </div>
+            </div>
+          </div>
+
+          <label class="switch-row">
+            <span class="switch"><input type="checkbox" name="pause_at_script" data-pause /><span class="switch-ui" aria-hidden="true"></span></span>
+            <span>
+              <b><svg class="icon" aria-hidden="true"><use href="#i-review" /></svg>Pause for script review</b>
+              <small>Read and edit the script before any audio is generated.</small>
+            </span>
+          </label>
+
+          <div class="composer-foot">
+            <p class="estimate mono" data-estimate aria-live="polite"></p>
+            <button class="btn btn-primary btn-lg" type="submit" data-submit>
+              <svg class="icon" aria-hidden="true"><use href="#i-spark" /></svg><span data-submit-label>Generate episode</span>
+              <kbd class="kbd-on-primary" data-mod-enter>⌘↵</kbd>
+            </button>
+          </div>
+          <div class="upload-bar" data-upload-bar hidden><span></span></div>
+          <p class="form-msg" data-form-msg role="status"></p>
+        </form>
+
+        <aside class="studio-side">
+          <section class="panel">
+            <h2 class="panel-title"><svg class="icon" aria-hidden="true"><use href="#i-search" /></svg>Open a job</h2>
+            <form class="lookup" data-lookup-form>
+              <input class="input mono" name="job_id" placeholder="job-1a2b3c4d" autocomplete="off" spellcheck="false" aria-label="Job ID" />
+              <button class="btn btn-soft" type="submit">Open<svg class="icon" aria-hidden="true"><use href="#i-arrow-right" /></svg></button>
+            </form>
+          </section>
+
+          <section class="panel">
+            <div class="panel-title-row">
+              <h2 class="panel-title"><svg class="icon" aria-hidden="true"><use href="#i-layers" /></svg>Recent on this device</h2>
+            </div>
+            <ul class="recent" data-recent></ul>
+          </section>
+
+          <section class="panel">
+            <div class="panel-title-row">
+              <h2 class="panel-title"><svg class="icon" aria-hidden="true"><use href="#i-activity" /></svg>System</h2>
+              <button class="icon-btn sm" type="button" data-metrics-refresh aria-label="Refresh system metrics"><svg class="icon" aria-hidden="true"><use href="#i-refresh" /></svg></button>
+            </div>
+            <div class="metrics" data-metrics><p class="muted small">Loading…</p></div>
+          </section>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ============================== JOB ============================== -->
+    <section class="view" data-view="job" aria-labelledby="job-title" hidden>
+      <div class="wrap job-head">
+        <a class="back-link" href="#/studio"><svg class="icon" aria-hidden="true"><use href="#i-arrow-left" /></svg>Studio</a>
+        <div class="job-title-row">
+          <div class="job-title-block">
+            <h1 id="job-title" class="h1" data-job-title tabindex="-1">Episode</h1>
+            <div class="job-meta">
+              <span class="status-badge" data-job-badge data-status="idle"><span class="sb-dot"></span><span data-job-badge-label>Loading</span></span>
+              <button class="id-chip mono" type="button" data-copy-id aria-label="Copy job ID"><span data-job-id></span><svg class="icon" aria-hidden="true"><use href="#i-copy" /></svg></button>
+              <span class="muted small mono" data-job-updated></span>
+            </div>
+          </div>
+        </div>
+        <ol class="stepper" data-stepper aria-label="Job progress"></ol>
+        <div class="notice" data-job-notice hidden></div>
+      </div>
+
+      <div class="wrap job-grid">
+        <div class="job-main">
+          <div class="tabs" role="tablist" aria-label="Job sections" data-job-tabs>
+            <button role="tab" type="button" id="tab-script" aria-controls="pane-script" aria-selected="true" data-tab="script"><svg class="icon" aria-hidden="true"><use href="#i-script" /></svg>Script <span class="tab-count" data-count-script></span></button>
+            <button role="tab" type="button" id="tab-listen" aria-controls="pane-listen" aria-selected="false" data-tab="listen"><svg class="icon" aria-hidden="true"><use href="#i-wave" /></svg>Listen</button>
+            <button role="tab" type="button" id="tab-files" aria-controls="pane-files" aria-selected="false" data-tab="files"><svg class="icon" aria-hidden="true"><use href="#i-layers" /></svg>Files <span class="tab-count" data-count-files></span></button>
+          </div>
+
+          <div class="tab-pane" role="tabpanel" id="pane-script" aria-labelledby="tab-script" data-pane="script">
+            <div data-script></div>
+          </div>
+          <div class="tab-pane" role="tabpanel" id="pane-listen" aria-labelledby="tab-listen" data-pane="listen" hidden>
+            <div data-listen></div>
+          </div>
+          <div class="tab-pane" role="tabpanel" id="pane-files" aria-labelledby="tab-files" data-pane="files" hidden>
+            <ul class="files" data-files></ul>
+          </div>
+        </div>
+
+        <aside class="job-side">
+          <section class="panel">
+            <h2 class="panel-title"><svg class="icon" aria-hidden="true"><use href="#i-info" /></svg>Details</h2>
+            <dl class="facts" data-facts></dl>
+          </section>
+          <section class="panel">
+            <div class="panel-title-row">
+              <h2 class="panel-title"><svg class="icon" aria-hidden="true"><use href="#i-activity" /></svg>Activity</h2>
+              <span class="live-pill" data-live-pill hidden><span class="live-dot"></span>Live</span>
+            </div>
+            <ol class="log mono" data-log aria-live="polite"></ol>
+          </section>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ============================== GUIDE ============================== -->
+    <section class="view" data-view="help" aria-labelledby="help-title" hidden>
+      <div class="wrap app-head">
+        <div>
+          <p class="kicker">Guide</p>
+          <h1 id="help-title" class="h1">Run it, trust it, tune it.</h1>
+        </div>
+      </div>
+      <div class="wrap help-grid">
+        <nav class="help-toc" aria-label="Guide sections">
+          <a href="#/help" data-jump="quick">Quick start</a>
+          <a href="#/help" data-jump="data">Data &amp; privacy</a>
+          <a href="#/help" data-jump="trouble">Troubleshooting</a>
+          <a href="#/help" data-jump="keys">Shortcuts</a>
+          <a href="#/help" data-jump="feedback">Feedback</a>
+        </nav>
+        <div class="prose">
+          <section id="quick">
+            <h2><svg class="icon" aria-hidden="true"><use href="#i-server" /></svg>Quick start</h2>
+            <p>The studio talks to the API on this origin. Jobs only move once a worker is running.</p>
+            <pre><code>make bootstrap
+make api      <span class="c"># http://localhost:8000</span>
+make worker   <span class="c"># in a second terminal</span></code></pre>
+            <p>Or bring up the full stack, including Redis and Ollama:</p>
+            <pre><code>docker compose up --build</code></pre>
+          </section>
+          <section id="data">
+            <h2><svg class="icon" aria-hidden="true"><use href="#i-lock" /></svg>Data &amp; privacy</h2>
+            <ul class="check-list">
+              <li>Uploads are saved to <code>data/jobs/&lt;job_id&gt;/</code>; outputs to <code>data/processed/&lt;job_id&gt;/</code>, or S3 when configured.</li>
+              <li>If the server sets <code>API_KEY</code>, enter it under <b>Connection</b>. It is kept in memory for this tab only and sent as the <code>x-api-key</code> header — never in a URL or browser storage.</li>
+              <li>This browser remembers only recent job IDs and file names, so you can reopen them. Clear them from the Studio list anytime.</li>
+              <li>Purge old artifacts with <code>python scripts/purge_stale_artifacts.py --max-age-days 14</code>.</li>
+              <li>Web fonts load from Google Fonts. Your documents never do; offline, the UI falls back to system fonts.</li>
+            </ul>
+          </section>
+          <section id="trouble">
+            <h2><svg class="icon" aria-hidden="true"><use href="#i-alert" /></svg>Troubleshooting</h2>
+            <dl class="qa">
+              <dt>Stuck on “Queued”</dt><dd>No worker is picking up jobs. Start one with <code>make worker</code> and check that <code>QUEUE_MODE</code> matches the API.</dd>
+              <dt>401 Unauthorized</dt><dd>The server requires an API key. Open <b>Connection</b> in the top bar and enter it.</dd>
+              <dt>413 or 415 on upload</dt><dd>The file is larger than <code>UPLOAD_MAX_BYTES</code> or isn't a PDF.</dd>
+              <dt>Failed after retries</dt><dd>Check the worker logs. Common causes: Ollama not running, a model not pulled, or a TTS engine that isn't installed.</dd>
+              <dt>Captions drift from audio</dt><dd>SRT timings are estimated from word counts, so they are approximate.</dd>
+            </dl>
+          </section>
+          <section id="keys">
+            <h2><svg class="icon" aria-hidden="true"><use href="#i-keyboard" /></svg>Shortcuts</h2>
+            <table class="keys">
+              <tbody>
+                <tr><td><kbd data-mod-key>⌘K</kbd></td><td>Command palette: jump anywhere, open a job by ID</td></tr>
+                <tr><td><kbd data-mod-enter>⌘↵</kbd></td><td>Generate episode (in Studio)</td></tr>
+                <tr><td><kbd>Space</kbd></td><td>Play / pause (in Listen)</td></tr>
+                <tr><td><kbd>←</kbd> <kbd>→</kbd></td><td>Seek 5 seconds (in Listen)</td></tr>
+                <tr><td><kbd>Esc</kbd></td><td>Close dialogs and menus</td></tr>
+              </tbody>
+            </table>
+          </section>
+          <section id="feedback">
+            <h2><svg class="icon" aria-hidden="true"><use href="#i-message" /></svg>Feedback</h2>
+            <p class="muted">Saved as JSON in <code>data/feedback/</code> on this server — it goes to whoever runs it.</p>
+            <form class="panel feedback" data-feedback-form>
+              <div class="field-row">
+                <div class="field"><label class="label" for="fbName">Name</label><input class="input" id="fbName" name="name" maxlength="120" autocomplete="name" /></div>
+                <div class="field"><label class="label" for="fbEmail">Email</label><input class="input" id="fbEmail" name="email" type="email" maxlength="200" autocomplete="email" /></div>
+              </div>
+              <div class="field-row">
+                <div class="field"><label class="label" for="fbJob">Job ID</label><input class="input mono" id="fbJob" name="job_id" maxlength="80" /></div>
+                <div class="field"><label class="label" for="fbContext">Area</label><input class="input" id="fbContext" name="context" placeholder="Voices, pacing, citations…" /></div>
+              </div>
+              <div class="field"><label class="label" for="fbMessage">Message</label><textarea class="input" id="fbMessage" name="message" rows="4" minlength="4" maxlength="4000" required></textarea></div>
+              <div class="composer-foot">
+                <p class="form-msg" data-feedback-msg role="status"></p>
+                <button class="btn btn-primary" type="submit"><svg class="icon" aria-hidden="true"><use href="#i-message" /></svg>Send feedback</button>
+              </div>
+            </form>
+          </section>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== NOT FOUND ============================== -->
+    <section class="view" data-view="notfound" aria-labelledby="nf-title" hidden>
+      <div class="wrap empty-state big">
+        <svg class="empty-icon" aria-hidden="true"><use href="#i-wave" /></svg>
+        <h1 id="nf-title" class="h1" tabindex="-1">Nothing on this frequency.</h1>
+        <p class="muted">That page doesn't exist.</p>
+        <div class="cta-row center">
+          <a class="btn btn-primary" href="#/studio">Open the studio</a>
+          <a class="btn btn-ghost" href="#/">Overview</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <span class="brand small"><svg class="brand-mark" aria-hidden="true"><use href="#i-mark" /></svg><span class="brand-word"><em>x</em>CAST</span></span>
+      <nav aria-label="Footer">
+        <a href="#/help">Guide</a>
+        <a href="/docs" target="_blank" rel="noopener">API docs</a>
+        <a href="/redoc" target="_blank" rel="noopener">ReDoc</a>
+        <a href="https://github.com/KOKUTBON/xCAST" target="_blank" rel="noopener">Source</a>
+      </nav>
+    </div>
+  </footer>
+
+  <!-- Connection dialog -->
+  <dialog class="dialog" data-conn-dialog aria-labelledby="conn-title">
+    <form method="dialog" class="dialog-body" data-conn-form>
+      <header class="dialog-head">
+        <span class="dialog-icon"><svg class="icon" aria-hidden="true"><use href="#i-key" /></svg></span>
+        <div>
+          <h2 id="conn-title">Connection</h2>
+          <p class="muted small" data-conn-status></p>
+        </div>
+      </header>
+      <div class="field">
+        <label class="label" for="apiKey">API key</label>
+        <input class="input mono" id="apiKey" type="password" autocomplete="off" placeholder="Only if the server sets API_KEY" data-api-key />
+        <small class="hint">Kept in memory for this tab. Sent as the <code>x-api-key</code> header.</small>
+      </div>
+      <footer class="dialog-foot">
+        <button class="btn btn-ghost" value="cancel" type="submit">Cancel</button>
+        <button class="btn btn-primary" value="save" type="submit">Save</button>
+      </footer>
+    </form>
+  </dialog>
+
+  <!-- Reject dialog -->
+  <dialog class="dialog" data-reject-dialog aria-labelledby="reject-title">
+    <form method="dialog" class="dialog-body">
+      <header class="dialog-head">
+        <span class="dialog-icon danger"><svg class="icon" aria-hidden="true"><use href="#i-alert" /></svg></span>
+        <div>
+          <h2 id="reject-title">Reject this script?</h2>
+          <p class="muted small">The job will be marked failed and no audio is generated.</p>
+        </div>
+      </header>
+      <div class="field">
+        <label class="label" for="rejectNote">Note (optional)</label>
+        <textarea class="input" id="rejectNote" rows="3" data-reject-note placeholder="What was wrong?"></textarea>
+      </div>
+      <footer class="dialog-foot">
+        <button class="btn btn-ghost" value="cancel" type="submit">Keep reviewing</button>
+        <button class="btn btn-danger" value="reject" type="submit">Reject script</button>
+      </footer>
+    </form>
+  </dialog>
+
+  <!-- Command palette -->
+  <dialog class="dialog palette" data-palette aria-label="Command palette">
+    <div class="palette-search">
+      <svg class="icon" aria-hidden="true"><use href="#i-search" /></svg>
+      <input type="text" placeholder="Jump to… or paste a job ID" data-palette-input aria-label="Search commands" autocomplete="off" spellcheck="false" role="combobox" aria-expanded="true" aria-controls="palette-list" />
+      <kbd>Esc</kbd>
+    </div>
+    <ul class="palette-list" id="palette-list" role="listbox" data-palette-list></ul>
+  </dialog>
+
+  <!-- Mobile menu -->
+  <dialog class="dialog drawer" data-menu aria-label="Menu">
+    <nav class="drawer-nav">
+      <a href="#/"><svg class="icon" aria-hidden="true"><use href="#i-home" /></svg>Overview</a>
+      <a href="#/studio"><svg class="icon" aria-hidden="true"><use href="#i-studio" /></svg>Studio</a>
+      <a href="#/help"><svg class="icon" aria-hidden="true"><use href="#i-help" /></svg>Guide</a>
+      <a href="/docs" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-braces" /></svg>API docs</a>
+      <button type="button" data-conn-open><svg class="icon" aria-hidden="true"><use href="#i-key" /></svg>Connection</button>
+    </nav>
+  </dialog>
+
+  <div class="toasts" data-toasts aria-live="polite" aria-atomic="false"></div>
+</body>
+</html>

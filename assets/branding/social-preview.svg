@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 640" role="img" aria-label="xCAST: research papers into cited podcast episodes">
+  <title>xCAST</title>
+  <defs>
+    <linearGradient id="tic-g" x1="6" y1="4" x2="58" y2="60" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FF7A3D"/>
+      <stop offset=".52" stop-color="#F0457A"/>
+      <stop offset="1" stop-color="#7C5CFF"/>
+    </linearGradient>
+    <radialGradient id="glow1" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1080 120) scale(520)">
+      <stop offset="0" stop-color="#7C5CFF" stop-opacity=".35"/><stop offset="1" stop-color="#7C5CFF" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow2" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(160 600) scale(520)">
+      <stop offset="0" stop-color="#FF7A3D" stop-opacity=".28"/><stop offset="1" stop-color="#FF7A3D" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="wave" x1="80" x2="1200" y1="0" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FF7A3D"/><stop offset=".5" stop-color="#F0457A"/><stop offset="1" stop-color="#7C5CFF"/>
+    </linearGradient>
+  </defs>
+  <rect width="1280" height="640" fill="#0A0B10"/>
+  <rect width="1280" height="640" fill="url(#glow1)"/>
+  <rect width="1280" height="640" fill="url(#glow2)"/>
+  <g transform="translate(80 80) scale(1.25)">
+    <rect width="64" height="64" rx="16" fill="url(#tic-g)"/>
+    <g fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round">
+      <path stroke-width="5" d="M23 16h-6v32h6M41 16h6v32h-6"/>
+      <path stroke-width="4.5" d="M25.5 29v6M32 22v20M38.5 26.5v11"/>
+    </g>
+  </g>
+  <text x="186" y="130" fill="#ECEDF3" font-family="Inter, 'Helvetica Neue', Arial, sans-serif" font-size="34" font-weight="600"><tspan font-family="Fraunces, 'Iowan Old Style', Georgia, serif" font-style="italic" font-weight="400" fill="#FF8A5B">x</tspan>CAST</text>
+  <text x="80" y="300" fill="#ECEDF3" font-family="Fraunces, 'Iowan Old Style', Georgia, serif" font-size="84" font-weight="500" letter-spacing="-2">Papers in.</text>
+  <text x="80" y="392" fill="#ECEDF3" font-family="Fraunces, 'Iowan Old Style', Georgia, serif" font-size="84" font-weight="500" letter-spacing="-2"><tspan font-style="italic" fill="#FF8A5B">Cited</tspan> conversations out.</text>
+  <text x="80" y="452" fill="#A3A8BA" font-family="Inter, 'Helvetica Neue', Arial, sans-serif" font-size="28">Local-first PDF-to-podcast pipeline · scripts, transcripts, captions, audio</text>
+  <g stroke="url(#wave)" stroke-width="6" stroke-linecap="round" opacity=".9">
+    <path d="M80 548v12M100 540v28M120 530v48M140 542v24M160 520v68M180 536v36M200 526v56M220 546v16M240 516v76M260 532v44M280 540v28M300 522v64M320 544v20M340 528v52M360 536v36M380 518v72M400 540v28M420 530v48M440 546v16M460 524v60M480 534v40M500 542v24M520 520v68M540 532v44M560 546v16M580 526v56M600 538v32M620 516v76M640 530v48M660 542v24M680 524v60M700 536v36M720 546v16M740 520v68M760 532v44M780 540v28M800 526v56M820 544v20M840 518v72M860 534v40M880 542v24M900 528v52M920 538v32M940 522v64M960 546v16M980 530v48M1000 540v28M1020 524v60M1040 536v36M1060 546v16M1080 528v52M1100 540v28M1120 532v44M1140 544v20M1160 536v36M1180 546v16M1200 540v28"/>
+  </g>
+</svg>

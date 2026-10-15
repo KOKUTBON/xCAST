@@ -1,0 +1,44 @@
+[project]
+name = "podcastify-api"
+version = "0.1.0"
+description = "Thinking in Code API service."
+requires-python = ">=3.11"
+keywords = [
+  "fastapi",
+  "api",
+  "podcast",
+  "pdf-to-podcast",
+  "text-to-speech",
+]
+license = "MIT"
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Developers",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Framework :: FastAPI",
+]
+dependencies = [
+  "fastapi>=0.143.0",
+  "starlette>=1.3.1,<2",
+  "uvicorn[standard]>=0.27",
+  "python-dotenv>=1.0",
+  "python-multipart>=0.0.9",
+  "redis>=5.0",
+  "podcastify-contracts>=0.1.0",
+]
+
+[project.urls]
+Repository = "https://github.com/KOKUTBON/xCAST"
+Documentation = "https://github.com/KOKUTBON/xCAST/blob/main/README.md"
+Source = "https://github.com/KOKUTBON/xCAST/tree/main/services/api"
+
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]

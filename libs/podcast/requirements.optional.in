@@ -1,0 +1,2 @@
+# Supported optional audio output; model providers use separately reviewed environments.
+soundfile>=0.13

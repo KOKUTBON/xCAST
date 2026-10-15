@@ -1,0 +1,1581 @@
+{
+  "generated": "2026-10-10",
+  "scope": "Dependency metadata observed from committed npm locks and local validation environments. Not a legal clearance or complete binary/container SBOM. Preserve upstream notices and inspect assets separately.",
+  "dependencies": [
+    {
+      "ecosystem": "python",
+      "name": "PyYAML",
+      "version": "6.0.3",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "Pygments",
+      "version": "2.21.0",
+      "license": "BSD-2-Clause",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "annotated-doc",
+      "version": "0.0.5",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "annotated-types",
+      "version": "0.8.0",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "anyio",
+      "version": "4.15.1",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "certifi",
+      "version": "2026.7.22",
+      "license": "MPL-2.0",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "cffi",
+      "version": "2.1.1",
+      "license": "MIT-0",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "charset-normalizer",
+      "version": "3.5.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "click",
+      "version": "8.5.0",
+      "license": "BSD-3-Clause",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "cryptography",
+      "version": "50.0.2",
+      "license": "Apache-2.0 OR BSD-3-Clause",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "fastapi",
+      "version": "0.143.0",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "googleapis-common-protos",
+      "version": "1.75.5",
+      "license": "Apache-2.0",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "h11",
+      "version": "0.16.0",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "httpcore",
+      "version": "1.0.9",
+      "license": "BSD-3-Clause",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "httptools",
+      "version": "0.9.0",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "httpx",
+      "version": "0.28.1",
+      "license": "BSD-3-Clause",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "idna",
+      "version": "3.20",
+      "license": "BSD-3-Clause",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "iniconfig",
+      "version": "2.3.1",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "markdown-it-py",
+      "version": "4.2.0",
+      "license": "License :: OSI Approved :: MIT License",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "mdurl",
+      "version": "0.1.2",
+      "license": "License :: OSI Approved :: MIT License",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "numpy",
+      "version": "2.5.3",
+      "license": "BSD-3-Clause AND 0BSD AND MIT AND Zlib AND CC0-1.0",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "opentelemetry-api",
+      "version": "1.45.1",
+      "license": "Apache-2.0",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "opentelemetry-exporter-http-transport",
+      "version": "0.66b1",
+      "license": "Apache-2.0",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "opentelemetry-exporter-otlp-common",
+      "version": "0.66b1",
+      "license": "Apache-2.0",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "opentelemetry-exporter-otlp-proto-common",
+      "version": "1.45.1",
+      "license": "Apache-2.0",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "opentelemetry-exporter-otlp-proto-http",
+      "version": "1.45.1",
+      "license": "Apache-2.0",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "opentelemetry-proto",
+      "version": "1.45.1",
+      "license": "Apache-2.0",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "opentelemetry-sdk",
+      "version": "1.45.1",
+      "license": "Apache-2.0",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "opentelemetry-semantic-conventions",
+      "version": "0.66b1",
+      "license": "Apache-2.0",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "packaging",
+      "version": "26.3",
+      "license": "Apache-2.0 OR BSD-2-Clause",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pdfminer.six",
+      "version": "20260107",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pdfplumber",
+      "version": "0.11.10",
+      "license": "License :: OSI Approved :: MIT License",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pillow",
+      "version": "12.3.0",
+      "license": "MIT-CMU",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pluggy",
+      "version": "1.6.0",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "podcastify-podcast",
+      "version": "0.1.0",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "prometheus_client",
+      "version": "0.26.0",
+      "license": "Apache-2.0 AND BSD-2-Clause",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "protobuf",
+      "version": "7.36.2",
+      "license": "3-Clause BSD License",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pycparser",
+      "version": "3.11",
+      "license": "BSD-3-Clause",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pydantic",
+      "version": "2.14.0",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pydantic_core",
+      "version": "2.50.0",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pydub",
+      "version": "0.25.1",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyloudnorm",
+      "version": "0.2.0",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pymupdf",
+      "version": "1.28.2",
+      "license": "Dual Licensed - GNU AFFERO GPL 3.0 or Artifex Commercial License",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-core",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-ARKit",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-AVFoundation",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-AVKit",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-AVRouting",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-Accessibility",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-Accounts",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-AdServices",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-AdSupport",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-AddressBook",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-AppTrackingTransparency",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-AppleScriptKit",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-AppleScriptObjC",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-ApplicationServices",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-AudioVideoBridging",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-AuthenticationServices",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-AutomaticAssessmentConfiguration",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-Automator",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-BackgroundAssets",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-BrowserEngineKit",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-BusinessChat",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-CFNetwork",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-CalendarStore",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-CallKit",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-Carbon",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-Cinematic",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-ClassKit",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-CloudKit",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-Cocoa",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-Collaboration",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-ColorSync",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-CompositorServices",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-Contacts",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-ContactsUI",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-CoreAudio",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-CoreAudioKit",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-CoreBluetooth",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-CoreData",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-CoreHaptics",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-CoreLocation",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-CoreMIDI",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-CoreML",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-CoreMedia",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-CoreMediaIO",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-CoreMotion",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-CoreServices",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-CoreSpotlight",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-CoreText",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-CoreWLAN",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-CryptoTokenKit",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-DVDPlayback",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-DataDetection",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-DeviceCheck",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-DeviceDiscoveryExtension",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-DictionaryServices",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-DiscRecording",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-DiscRecordingUI",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-DiskArbitration",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-EventKit",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-ExceptionHandling",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-ExecutionPolicy",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-ExtensionKit",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-ExternalAccessory",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-FSEvents",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-FSKit",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-FileProvider",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-FileProviderUI",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-FinderSync",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-GameCenter",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-GameController",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-GameKit",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-GameSave",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-GameplayKit",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-HealthKit",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-IOBluetooth",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-IOBluetoothUI",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-IOSurface",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-ImageCaptureCore",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-InputMethodKit",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-InstallerPlugins",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-InstantMessage",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-Intents",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-IntentsUI",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-KernelManagement",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-LatentSemanticMapping",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-LaunchServices",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-LinkPresentation",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-LocalAuthentication",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-LocalAuthenticationEmbeddedUI",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-MLCompute",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-MailKit",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-MapKit",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-MediaAccessibility",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-MediaExtension",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-MediaLibrary",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-MediaPlayer",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-MediaToolbox",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-Metal",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-MetalFX",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-MetalKit",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-MetalPerformanceShaders",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-MetalPerformanceShadersGraph",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-MetricKit",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-ModelIO",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-MultipeerConnectivity",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-NaturalLanguage",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-NetFS",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-Network",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-NetworkExtension",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-NotificationCenter",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-OSAKit",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-OSLog",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-OpenDirectory",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-PHASE",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-PassKit",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-PencilKit",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-Photos",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-PhotosUI",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-PreferencePanes",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-PushKit",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-Quartz",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-QuickLookThumbnailing",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-ReplayKit",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-SafariServices",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-SafetyKit",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-SceneKit",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-ScreenCaptureKit",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-ScreenSaver",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-ScreenTime",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-ScriptingBridge",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-SearchKit",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-Security",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-SecurityFoundation",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-SecurityInterface",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-SecurityUI",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-SensitiveContentAnalysis",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-ServiceManagement",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-SharedWithYou",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-SharedWithYouCore",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-ShazamKit",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-Social",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-SoundAnalysis",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-Speech",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-SpriteKit",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-StoreKit",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-Symbols",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-SyncServices",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-SystemConfiguration",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-SystemExtensions",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-ThreadNetwork",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-UniformTypeIdentifiers",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-UserNotifications",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-UserNotificationsUI",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-VideoSubscriberAccount",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-VideoToolbox",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-Virtualization",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-Vision",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-WebKit",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-iTunesLibrary",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-libdispatch",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyobjc-framework-libxpc",
+      "version": "12.2.2",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pypdfium2",
+      "version": "5.14.0",
+      "license": "BSD-3-Clause, Apache-2.0, dependency licenses",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pytesseract",
+      "version": "0.3.13",
+      "license": "Apache License 2.0",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pytest",
+      "version": "9.1.1",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "python-dotenv",
+      "version": "1.2.4",
+      "license": "BSD-3-Clause",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "python-multipart",
+      "version": "0.0.32",
+      "license": "Apache-2.0",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "pyttsx3",
+      "version": "2.99",
+      "license": "MPL-2.0",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "rank-bm25",
+      "version": "0.2.2",
+      "license": "Apache2.0",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "redis",
+      "version": "8.1.0",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "requests",
+      "version": "2.34.2",
+      "license": "Apache-2.0",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "rich",
+      "version": "15.0.0",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "ruff",
+      "version": "0.17.0",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "scipy",
+      "version": "1.18.1",
+      "license": "See upstream package license text (metadata contains full terms)",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "starlette",
+      "version": "1.7.0",
+      "license": "BSD-3-Clause",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "typing-inspection",
+      "version": "0.4.4",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "typing_extensions",
+      "version": "4.16.0",
+      "license": "PSF-2.0",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "urllib3",
+      "version": "2.8.0",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "uvicorn",
+      "version": "0.54.0",
+      "license": "BSD-3-Clause",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "uvloop",
+      "version": "0.23.0",
+      "license": "MIT License",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "watchfiles",
+      "version": "1.3.0",
+      "license": "MIT",
+      "scope": "local validation environment; may include development/optional dependencies"
+    },
+    {
+      "ecosystem": "python",
+      "name": "websockets",
+      "version": "17.2",
+      "license": "BSD-3-Clause",
+      "scope": "local validation environment; may include development/optional dependencies"
+    }
+  ]
+}
